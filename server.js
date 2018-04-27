@@ -12,6 +12,9 @@ app.use(express.static(path.join(__dirname, './app/public')));
 const htmlRoutes = require('./app/routing/htmlRoutes');
 app.use('/', htmlRoutes);
 
+const api = require('./app/routing/apiRoutes');
+app.use('/', api);
+
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
